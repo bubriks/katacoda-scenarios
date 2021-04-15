@@ -25,7 +25,10 @@
       "text": "finish.md"
     }
   },
-  "environment": {},
+  "environment": {
+	"showdashboards": true,
+    "uilayout": "terminal-iframe"
+  },
   "backend": {
     "imageid": "minikube-running"
   }

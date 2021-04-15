@@ -52,15 +52,30 @@ install istio (needed for a/b testing as its bussines decision)
 
 
 1
-curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -
-cd istio-1.9.2
-export PATH=$PWD/bin:$PATH
+`git clone https://github.com/bubriks/simple-web`{{execute}}
+`cd simple-web`{{execute}}
+`kubectl apply -f deployment.yml`{{execute}}
 
-istioctl install
-kubectl label namespace default istio-injection=enabled
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute}}
+`cd istio-1.9.2`{{execute}}
+`export PATH=$PWD/bin:$PATH`{{execute}}
 
-git clone https://github.com/bubriks/simple-web
-cd simple-web
+`istioctl install`{{execute}}
+`kubectl label namespace default istio-injection=enabled`{{execute}}
+`kubectl apply -f istio.yml`{{execute}}
 
-kubectl apply -f deployment.yml
-kubectl apply -f istio.yml
+`istioctl analyze`{{execute}}
+
+`export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')`{{execute}}
+`export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')`{{execute}}
+`export INGRESS_HOST=$(minikube ip)`{{execute}}
+`export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`{{execute}}
+
+Terminal 2:
+`minikube tunnel`{{execute}}
+
+`curl http://$GATEWAY_URL`{{execute}}
+
+`kubectl apply -f samples/addons`{{execute}}
+`kubectl rollout status deployment/kiali -n istio-system`{{execute}}
+`istioctl dashboard kiali`{{execute}}
