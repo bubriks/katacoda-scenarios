@@ -29,7 +29,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "port": 80,
-    "dockerimage": "istio"
+    "imageid": "minikube-running"
   }
 }
