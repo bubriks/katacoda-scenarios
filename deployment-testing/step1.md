@@ -52,54 +52,51 @@ install istio (needed for a/b testing as its bussines decision)
 
 
 ---------------------------------------------------------------
-`git clone https://github.com/bubriks/simple-web`{{execute}}
+`git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
-`cd simple-web`{{execute}}
+`cd simple-web`{{execute T1}}
 
-`kubectl apply -f deployment.yml`{{execute}}
-
-
-`cd`{{execute}}
-
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute}}
-
-`cd istio-1.9.2`{{execute}}
-
-`export PATH=$PWD/bin:$PATH`{{execute}}
-
-`istioctl install`{{execute}}
-
-`kubectl label namespace default istio-injection=enabled`{{execute}}
+`kubectl apply -f deployment.yml`{{execute T1}}
 
 
-`cd`{{execute}}
+`cd`{{execute T1}}
 
-`cd simple-web`{{execute}}
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute T1}}
 
-`kubectl apply -f istio.yml`{{execute}}
+`cd istio-1.9.2`{{execute T1}}
 
-`istioctl analyze`{{execute}}
+`export PATH=$PWD/bin:$PATH`{{execute T1}}
+
+`istioctl install`{{execute T1}}
+
+`y`{{execute T1}}
+
+`kubectl label namespace default istio-injection=enabled`{{execute T1}}
 
 
-`export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')`{{execute}}
+`cd`{{execute T1}}
 
-`export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')`{{execute}}
+`cd simple-web`{{execute T1}}
 
-`export INGRESS_HOST=$(minikube ip)`{{execute}}
+`kubectl apply -f istio.yml`{{execute T1}}
 
-`export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`{{execute}}
+`istioctl analyze`{{execute T1}}
+
+
+`export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')`{{execute T1}}
 
 Terminal 2:
-`minikube tunnel`{{execute}}
+`minikube tunnel`{{execute T2}}
 
 
-`echo $INGRESS_PORT`{{execute}}
+`echo $INGRESS_PORT`{{execute T1}}
 
-`curl http://$GATEWAY_URL`{{execute}}
+Copy port number and enter it in the following site
+https://[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/.
 
 
-`kubectl apply -f samples/addons`{{execute}}
+`kubectl apply -f samples/addons`{{execute T1}}
 
-`kubectl rollout status deployment/kiali -n istio-system`{{execute}}
+`kubectl rollout status deployment/kiali -n istio-system`{{execute T1}}
 
-`istioctl dashboard kiali`{{execute}}
+`istioctl dashboard kiali`{{execute T1}}
