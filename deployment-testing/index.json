@@ -30,6 +30,7 @@
     "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "minikube-running"
+    "imageid": "kubernetes-cluster-running",
+	"port": 80
   }
 }

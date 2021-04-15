@@ -92,7 +92,7 @@ Terminal 2:
 `echo $INGRESS_PORT`{{execute T1}}
 
 Copy port number and enter it in the following site
-https://[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/.
+https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/.
 
 `cd`{{execute T1}}
 
