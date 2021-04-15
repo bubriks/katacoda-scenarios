@@ -94,6 +94,9 @@ Terminal 2:
 Copy port number and enter it in the following site
 https://[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/.
 
+`cd`{{execute T1}}
+
+`cd istio-1.9.2`{{execute T1}}
 
 `kubectl apply -f samples/addons`{{execute T1}}
 
