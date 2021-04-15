@@ -30,6 +30,6 @@
     "uilayout": "terminal-iframe"
   },
   "backend": {
-    "image": "istio"
+    "dockerimage": "istio"
   }
 }
