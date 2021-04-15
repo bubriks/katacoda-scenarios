@@ -25,9 +25,7 @@
       "text": "finish.md"
     }
   },
-  "environment": {
-    "uilayout": "terminal"
-  },
+  "environment": {},
   "backend": {
     "imageid": "minikube-running"
   }
