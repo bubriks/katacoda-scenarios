@@ -3,11 +3,9 @@ Start kubernetes by lunching:
 `launch.sh`{{execute T1}}
 Once it is running we can 
 
-----
-
 `curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -`{{execute T1}}
 
-`export PATH="$PATH:/root/istio-1.0.0/bin"`{{execute T1}}
+`export PATH="$PATH:/istio-1.0.0/bin"`{{execute T1}}
 
 `cd istio-1.0.0`{{execute T1}}
 
@@ -16,24 +14,6 @@ Once it is running we can
 `kubectl apply -f install/kubernetes/istio-demo-auth.yaml`{{execute T1}}
 
 `kubectl get pods -n istio-system`{{execute T1}}
-
-----
-
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute T1}}
-
-`cd istio-1.9.2`{{execute T1}}
-
-`export PATH=$PWD/bin:$PATH`{{execute T1}}
-
-`istioctl install`{{execute T1}}
-
-`y`{{execute T1}}
-
-`kubectl label namespace default istio-injection=enabled`{{execute T1}}
-
-`kubectl get pods -n istio-system`{{execute T1}}
-
-----
 
 `cd`{{execute T1}}
 
@@ -48,6 +28,14 @@ Once it is running we can
 `kubectl apply -f istio.yml`{{execute T1}}
 
 `kubectl get pods`{{execute T1}}
+
+----
+
+`cd ~ && curl -L -o ~/grafana-4.5.1.linux-x64.tar.gz https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.5.1.linux-x64.tar.gz && tar -zxvf ~/grafana-4.5.1.linux-x64.tar.gz`{{execute T1}}
+
+`cd ~/grafana-4.5.1/bin/ && ./grafana-server`{{execute T1}}
+
+----
 
 https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-mesh-dashboard
