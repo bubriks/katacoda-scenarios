@@ -52,6 +52,13 @@ install istio (needed for a/b testing as its bussines decision)
 
 
 ---------------------------------------------------------------
+
+`curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64`{{execute T1}}
+`install minikube-linux-amd64 /usr/local/bin/minikube`{{execute T1}}
+
+`minikube start --driver=none`{{execute T1}}
+
+
 `git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
 `cd simple-web`{{execute T1}}
