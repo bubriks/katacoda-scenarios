@@ -21,8 +21,6 @@ Once it is running we can
 
 `cd simple-web`{{execute T1}}
 
-`kubectl apply -f katacoda.yaml`{{execute T1}}
-
 `kubectl apply -f deployment.yml`{{execute T1}}
 
 `kubectl apply -f istio.yml`{{execute T1}}
@@ -37,7 +35,7 @@ Once it is running we can
 
 ----
 
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
 https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-mesh-dashboard
 https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
 https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/dotviz
@@ -57,6 +55,8 @@ done```{{execute T1}}
 kubectl get pods
 
 ---------------------------------------------------------------
+
+`kubectl apply -f katacoda.yaml`{{execute T1}}
 
 # Setup
 

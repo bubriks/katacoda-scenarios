@@ -27,7 +27,7 @@
   },
   "environment": {
 	"showdashboards": true,
-    "uilayout": "terminal-iframe"
+    "uilayout": "editor-terminal-iframe"
   },
   "backend": {
     "imageid": "istio",
