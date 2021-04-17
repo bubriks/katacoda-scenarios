@@ -43,13 +43,28 @@ show and explain yml before running
 
 
 install istio (needed for a/b testing as its bussines decision)
+-------------------------------------------------------------
+We are using newest istio version that was release just few days ago
+Start kubernetes by lunching:
+`launch.sh`{{execute T1}}
+Once it is running we can 
 
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
 
+`cd istio-1.9.3`{{execute T1}}
 
+`export PATH=$PWD/bin:$PATH`{{execute T1}}
 
+`istioctl install`{{execute T1}}
 
+`y`{{execute T1}}
 
+`kubectl label namespace default istio-injection=enabled`{{execute T1}}
 
+??? kubectl apply -f /root/katacoda.yaml
+??? kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
+??? kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl get pods
 
 ---------------------------------------------------------------
 
@@ -113,3 +128,15 @@ https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/.
 `kubectl rollout status deployment/kiali -n istio-system`{{execute T1}}
 
 `istioctl dashboard kiali`{{execute T1}}
+
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+minikube start --driver=none
+
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -
+cd istio-1.9.2
+export PATH=$PWD/bin:$PATH
+istioctl install
+y
+kubectl label namespace default istio-injection=enabled
