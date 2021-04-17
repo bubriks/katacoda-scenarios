@@ -21,22 +21,18 @@ Once it is running we can
 
 `cd simple-web`{{execute T1}}
 
-`kubectl apply -f deployment.yml`{{execute T1}}
+`kubectl apply -f <(istioctl kube-inject -f kubectl apply -f deployment.yml)`{{execute T1}}
 
 `kubectl apply -f istio.yml`{{execute T1}}
 
 `kubectl get pods`{{execute T1}}
 
-----
-
-`cd ~ && curl -L -o ~/grafana-4.5.1.linux-x64.tar.gz https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.5.1.linux-x64.tar.gz && tar -zxvf ~/grafana-4.5.1.linux-x64.tar.gz`{{execute T1}}
-
-`cd ~/grafana-4.5.1/bin/ && ./grafana-server`{{execute T1}}
-
-----
-
+see site:
 https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
-https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-mesh-dashboard
+
+see dashboard (password and username: admin):
+https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
+
 https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
 https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/dotviz
 
