@@ -54,7 +54,10 @@ install istio (needed for a/b testing as its bussines decision)
 ---------------------------------------------------------------
 
 `curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64`{{execute T1}}
+
 `install minikube-linux-amd64 /usr/local/bin/minikube`{{execute T1}}
+
+`sudo apt-get install -y conntrack`{{execute T1}}
 
 `minikube start --driver=none`{{execute T1}}
 

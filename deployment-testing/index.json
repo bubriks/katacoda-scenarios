@@ -30,7 +30,7 @@
     "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "ubuntu:2004",
+    "imageid": "bash1804",
 	"port": 80
   }
 }
