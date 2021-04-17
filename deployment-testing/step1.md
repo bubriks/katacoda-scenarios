@@ -21,7 +21,7 @@ Once it is running we can
 
 `cd simple-web`{{execute T1}}
 
-`kubectl apply -f <(istioctl kube-inject -f kubectl apply -f deployment.yml)`{{execute T1}}
+`kubectl apply -f deployment.yml`{{execute T1}}
 
 `kubectl apply -f istio.yml`{{execute T1}}
 
