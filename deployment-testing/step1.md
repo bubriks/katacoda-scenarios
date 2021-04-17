@@ -15,11 +15,13 @@ Once it is running we can
 
 `kubectl get pods -n istio-system`{{execute T1}}
 
-`kubectl apply -f katacoda.yaml`{{execute T1}}
+`cd`{{execute T1}}
 
 `git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
 `cd simple-web`{{execute T1}}
+
+`kubectl apply -f katacoda.yaml`{{execute T1}}
 
 `kubectl apply -f deployment.yml`{{execute T1}}
 
@@ -33,7 +35,7 @@ https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
 https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/
 
 ```while true; do
-  curl -s https://[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com > /dev/null
+  curl -s https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com > /dev/null
   echo -n .;
   sleep 0.2
 done```{{execute T1}}
