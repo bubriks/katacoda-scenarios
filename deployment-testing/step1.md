@@ -4,6 +4,7 @@ Start kubernetes by lunching:
 Once it is running we can 
 
 ----
+
 `curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -`{{execute T1}}
 
 `export PATH="$PATH:/root/istio-1.0.0/bin"`{{execute T1}}
@@ -15,12 +16,12 @@ Once it is running we can
 `kubectl apply -f install/kubernetes/istio-demo-auth.yaml`{{execute T1}}
 
 `kubectl get pods -n istio-system`{{execute T1}}
+
 ----
 
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute T1}}
 
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
-
-`cd istio-1.9.3`{{execute T1}}
+`cd istio-1.9.2`{{execute T1}}
 
 `export PATH=$PWD/bin:$PATH`{{execute T1}}
 
