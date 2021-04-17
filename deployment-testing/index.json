@@ -30,7 +30,7 @@
     "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "ubuntu:2004",
+    "imageid": "kubernetes-cluster:1.18",
 	"port": 80
   }
 }
