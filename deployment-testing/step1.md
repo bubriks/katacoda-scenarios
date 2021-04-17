@@ -3,20 +3,30 @@ Start kubernetes by lunching:
 `launch.sh`{{execute T1}}
 Once it is running we can 
 
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
+`curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -`{{execute T1}}
 
-`cd istio-1.9.3`{{execute T1}}
+`export PATH="$PATH:/root/istio-1.0.0/bin"`{{execute T1}}
 
-`export PATH=$PWD/bin:$PATH`{{execute T1}}
+`cd /root/istio-1.0.0`{{execute T1}}
 
-`istioctl install`{{execute T1}}
+`kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system`{{execute T1}}
 
-`y`{{execute T1}}
-
-`kubectl label namespace default istio-injection=enabled`{{execute T1}}
+`kubectl apply -f install/kubernetes/istio-demo-auth.yaml`{{execute T1}}
 
 `kubectl get pods -n istio-system`{{execute T1}}
+
 `kubectl apply -f /root/katacoda.yaml`{{execute T1}}
+
+`git clone https://github.com/bubriks/simple-web`{{execute T1}}
+
+`cd simple-web`{{execute T1}}
+
+`kubectl apply -f deployment.yml`{{execute T1}}
+
+`kubectl apply -f istio.yml`{{execute T1}}
+
+https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/.
+
 `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`{{execute T1}}
 `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`{{execute T1}}
 `kubectl get pods`{{execute T1}}
