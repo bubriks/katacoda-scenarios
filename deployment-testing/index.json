@@ -30,7 +30,7 @@
     "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "Ubuntu 20.04",
+    "imageid": "ubuntu:2004",
 	"port": 80
   }
 }
