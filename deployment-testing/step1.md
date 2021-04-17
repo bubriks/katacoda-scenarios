@@ -7,7 +7,7 @@ Once it is running we can
 
 `export PATH="$PATH:/root/istio-1.0.0/bin"`{{execute T1}}
 
-`cd /root/istio-1.0.0`{{execute T1}}
+`cd istio-1.0.0`{{execute T1}}
 
 `kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system`{{execute T1}}
 
@@ -15,7 +15,7 @@ Once it is running we can
 
 `kubectl get pods -n istio-system`{{execute T1}}
 
-`kubectl apply -f /root/katacoda.yaml`{{execute T1}}
+`kubectl apply -f katacoda.yaml`{{execute T1}}
 
 `git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
@@ -25,11 +25,22 @@ Once it is running we can
 
 `kubectl apply -f istio.yml`{{execute T1}}
 
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/.
+`kubectl get pods`{{execute T1}}
+
+https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
+https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
+https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/
+
+```while true; do
+  curl -s https://[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com > /dev/null
+  echo -n .;
+  sleep 0.2
+done```{{execute T1}}
 
 `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`{{execute T1}}
 `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`{{execute T1}}
-`kubectl get pods`{{execute T1}}
+`kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml`{{execute T1}}
 
 ??? kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
 ??? kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
