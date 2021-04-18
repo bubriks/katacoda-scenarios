@@ -30,6 +30,7 @@ Once it is running we can
 see site:
 https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
 
+Dashboards dont work yet
 see dashboard (password and username: admin):
 https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
 
