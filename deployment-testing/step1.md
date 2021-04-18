@@ -1,10 +1,3 @@
-# istio
-
-We are using newest istio version that was release just few days ago
-Start kubernetes by lunching:
-`launch.sh`{{execute T1}}
-Once it is running we can 
-
 `curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -`{{execute T1}}
 
 `cd istio-1.0.0`{{execute T1}}
@@ -37,7 +30,8 @@ sed -i 's/172.17.0.54/<received-ip>/g' katacoda.yaml
 After replacing ip we can run last yaml which would allow us to access the website with port 80 and dashboards
 
 `kubectl apply -f katacoda.yaml`{{execute T1}}
-
+[[HOST_IP]]
+[[HOST2_IP]]
 ```while true; do
   curl -s https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com > /dev/null
   echo -n .;
@@ -45,19 +39,32 @@ After replacing ip we can run last yaml which would allow us to access the websi
 done```{{execute T1}}
 
 see site:
+
 https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
 
 Dashbord:
+
 Grafana.
+
 https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-mesh-dashboard
+
 Service Graph.
+
 https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/dotviz
+
 Jaeger.
-https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
-Prometheus.
+
 https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
 
+Prometheus.
+
+https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com/
+
 ---------------------------------------------------------------
+
+Start kubernetes by lunching:
+
+`launch.sh`{{execute T1}}
 
 # Setup
 
