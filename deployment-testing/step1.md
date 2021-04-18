@@ -29,9 +29,13 @@ Once it is running we can
 
 `kubectl get pods`{{execute T1}}
 
-`$ ip route get 1 | awk '{print $NF;exit}'`{{execute T1}}
-`sed 's/172.17.0.54/bar/g' katacoda.yaml`{{execute T1}}
-Change ip adresses with the ip within the following file.
+`ip route get 1 | awk '{print $NF;exit}'`{{execute T1}}
+
+Insert the received ip in place of <received-ip> and run the command (this will replaced the previous string with new one, in this case our external cluster ip{not the same as localhost})
+sed -i 's/172.17.0.54/<received-ip>/g' katacoda.yaml
+
+After replacing ip we can run last yaml which would allow us to access the website with port 80 and dashboards
+
 `kubectl apply -f katacoda.yaml`{{execute T1}}
 
 ```while true; do
