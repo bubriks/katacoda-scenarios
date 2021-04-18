@@ -1,3 +1,5 @@
+# istio
+
 We are using newest istio version that was release just few days ago
 Start kubernetes by lunching:
 `launch.sh`{{execute T1}}
@@ -29,6 +31,37 @@ Once it is running we can
 
 see site:
 https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
+
+----
+
+# kubernetes-cluster-running
+
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
+
+`cd istio-1.9.3`{{execute T1}}
+
+`export PATH=$PWD/bin:$PATH`{{execute T1}}
+
+`istioctl install`{{execute T1}}
+
+`y`{{execute T1}}
+
+`kubectl label namespace default istio-injection=enabled`{{execute T1}}
+
+`git clone https://github.com/bubriks/simple-web`{{execute T1}}
+
+`cd simple-web`{{execute T1}}
+
+`kubectl apply -f deployment.yml`{{execute T1}}
+
+`kubectl apply -f istio.yml`{{execute T1}}
+
+`kubectl get pods`{{execute T1}}
+
+----
+
+
+
 
 Dashboards dont work yet
 see dashboard (password and username: admin):
@@ -120,9 +153,9 @@ install istio (needed for a/b testing as its bussines decision)
 
 `cd`{{execute T1}}
 
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute T1}}
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
 
-`cd istio-1.9.2`{{execute T1}}
+`cd istio-1.9.3`{{execute T1}}
 
 `export PATH=$PWD/bin:$PATH`{{execute T1}}
 
