@@ -48,6 +48,8 @@ https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
 
 `kubectl label namespace default istio-injection=enabled`{{execute T1}}
 
+`cd`{{execute T1}}
+
 `git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
 `cd simple-web`{{execute T1}}
