@@ -5,19 +5,9 @@ Once it is running we can
 
 `curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -`{{execute T1}}
 
-----
-
-`export PATH="$PATH:/root/istio-1.0.0/bin"`{{execute T1}}
-
-`kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)`{{execute T1}}
-
-`kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`{{execute T1}}
-
-----
-
-`export PATH="$PATH:/istio-1.0.0/bin"`{{execute T1}}
-
 `cd istio-1.0.0`{{execute T1}}
+
+`export PATH=$PWD/bin:$PATH`{{execute T1}}
 
 `kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system`{{execute T1}}
 
