@@ -24,8 +24,8 @@
 
 `ip route get 1 | awk '{print $NF;exit}'`{{execute T1}}
 
-Insert the received ip in place of <received-ip> and run the command (this will replaced the previous string with new one, in this case our external cluster ip{not the same as localhost})
-sed -i 's/172.17.0.54/<received-ip>/g' katacoda.yaml
+Insert the received ip in place of received-ip and run the command (this will replaced the previous string with new one, in this case our external cluster ip{not the same as localhost})
+`sed -i 's/172.17.0.54/[[HOST_IP]]/g' katacoda.yaml`{{execute T1}}
 
 After replacing ip we can run last yaml which would allow us to access the website with port 80 and dashboards
 
