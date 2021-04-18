@@ -29,48 +29,10 @@ Once it is running we can
 
 `kubectl get pods`{{execute T1}}
 
-see site:
-https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
-
-----
-
-# kubernetes-cluster-running
-
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
-
-`cd istio-1.9.3`{{execute T1}}
-
-`export PATH=$PWD/bin:$PATH`{{execute T1}}
-
-`istioctl install`{{execute T1}}
-
-`y`{{execute T1}}
-
-`kubectl label namespace default istio-injection=enabled`{{execute T1}}
-
-`cd`{{execute T1}}
-
-`git clone https://github.com/bubriks/simple-web`{{execute T1}}
-
-`cd simple-web`{{execute T1}}
-
-`kubectl apply -f deployment.yml`{{execute T1}}
-
-`kubectl apply -f istio.yml`{{execute T1}}
-
-`kubectl get pods`{{execute T1}}
-
-----
-
-
-
-
-Dashboards dont work yet
-see dashboard (password and username: admin):
-https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/
-
-https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
-https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/dotviz
+`$ ip route get 1 | awk '{print $NF;exit}'`{{execute T1}}
+`sed 's/172.17.0.54/bar/g' katacoda.yaml`{{execute T1}}
+Change ip adresses with the ip within the following file.
+`kubectl apply -f katacoda.yaml`{{execute T1}}
 
 ```while true; do
   curl -s https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com > /dev/null
@@ -78,17 +40,20 @@ https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/dotv
   sleep 0.2
 done```{{execute T1}}
 
-`kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`{{execute T1}}
-`kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`{{execute T1}}
-`kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml`{{execute T1}}
+see site:
+https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
 
-??? kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
-??? kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
-kubectl get pods
+Dashbord:
+Grafana.
+https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-mesh-dashboard
+Service Graph.
+https://[[HOST_SUBDOMAIN]]-8088-[[KATACODA_HOST]].environments.katacoda.com/dotviz
+Jaeger.
+https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
+Prometheus.
+https://[[HOST_SUBDOMAIN]]-16686-[[KATACODA_HOST]].environments.katacoda.com/
 
 ---------------------------------------------------------------
-
-`kubectl apply -f katacoda.yaml`{{execute T1}}
 
 # Setup
 
