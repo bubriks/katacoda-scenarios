@@ -30,7 +30,7 @@
     "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "kubernetes-cluster-running",
+    "imageid": "istio",
 	"port": 31380
   }
 }
