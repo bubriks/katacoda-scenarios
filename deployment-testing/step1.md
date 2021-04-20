@@ -14,7 +14,7 @@ Following this, we can add the bin folder of the downloaded istio to our path.
 
 Now with we can instal istio.
 
-`istioctl install -y`{{execute T1}}
+`istioctl install --set profile=demo -y`{{execute T1}}
 
 Lastly, lets instruct Istio to automatically inject Envoy sidecar proxies when deploying application.
 
