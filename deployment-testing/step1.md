@@ -1,22 +1,23 @@
 The first step of our tutorial is to get everything ready, by setting up [Istio](https://istio.io/).
 
-To do this we will start by downloading it.
+Lets begin by starting the Kubernetes.
 
-`curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -`{{execute T1}}
+`launch.sh`{{execute T1}}
 
-Following this, we can enter the folder and add the bin to our path.
-`cd istio-1.0.0`{{execute T1}}
+Next we can download the most recent istio (1.9.3 is most recent at the time of writting).
 
-`export PATH=$PWD/bin:$PATH`{{execute T1}}
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
 
-Now we need to set up the istio environment, by running the following commands:
+Following this, we can add the bin folder of the downloaded istio to our path.
 
-`kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system`{{execute T1}}
+`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
 
-`kubectl apply -f install/kubernetes/istio-demo-auth.yaml`{{execute T1}}
+Now with we can instal istio.
 
-After the execution of the previous comands, we can check the status of the istio system pods.
+`istioctl install -y`{{execute T1}}
 
-`kubectl get pods -n istio-system`{{execute T1}}
+Lastly, lets instruct Istio to automatically inject Envoy sidecar proxies when deploying application.
 
-Once all pods are either Running or Completed we can go to the next step (This might take some time).
+`kubectl label namespace default istio-injection=enabled`{{execute T1}}
+
+With this being done we can move on to the next step.
