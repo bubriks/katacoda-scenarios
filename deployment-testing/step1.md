@@ -1,23 +1,19 @@
-The first step of our tutorial is to get everything ready, by setting up [Istio](https://istio.io/).
+The first part is the CI section of the tutorial. Due to the topic if you wish to follow along then this would need to be done outside of Katacoda. The explanation provided here should be enough to understand what is happening so that you can safely read along instead.
 
-To begin with, let us make sure that the Kubernetes cluster is running.
+First we need to get the sample repository with all of the example setups.
+`git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
-`launch.sh`{{execute T1}}
+Then lets move in and see what we have.
+`cd simple-web`{{execute T1}}
+`ls`{{execute T1}}
 
-Next, we can download the Istio version of our choice. For this tutorial, we are going to use the most recent at the time of writing.
+What we are going to focus on is `.travis.yml` and `package.json`.
+For `.travis.yml` it is a file that Travis CI will follow to show whether this version works or not.
 
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
-
-Following this, we can add the "istioctl" client to our path.
-
-`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
-
-With this being done we can go on to the actual installation of the product. For this purpose we are using "demo" [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/). It is a good choice for starting as it offers a good set of defaults.
-
-`istioctl install --set profile=demo -y`{{execute T1}}
-
-Lastly, let's instruct Istio to automatically inject Envoy sidecar proxies when deploying the application.
-
-`kubectl label namespace default istio-injection=enabled`{{execute T1}}
-
-With this being done we can move on to the next step.
+Inside we find:
+```
+language: node_js
+node_js:
+  - node
+```
+`language: node_js` specifies which language Travis expects and in this case it is Javascript within the Node JS framework. `node_js: - node` tells Travis to use the newest stable release of Node JS. Notice that the file is missing any commands, this is because has default behaviours. Travis would choose to run either `make test` or `npm test`. `npm test` is run if `package.json` exist. Travis would then also run `npm install` or `npm ci` which tells npm what to prepare before running the test. Travis would run `npm ci` if it detects a `package-lock.json` which tells npm what dependencies the project is using. 

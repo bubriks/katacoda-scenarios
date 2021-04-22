@@ -1,34 +1,25 @@
-Now that Istio is set up and running, we can continue by deploying our solution.
+Now we move on to the A/B testing part of our tutorial.
 
-To do this we will download the simple-web repository, which will contain all the necessary files for us to perform the rest of the tutorial.
+The first step of our tutorial is to get everything ready, by setting up [Istio](https://istio.io/).
 
-`git clone https://github.com/bubriks/simple-web`{{execute T1}}
+To begin with, let us make sure that the Kubernetes cluster is running.
 
-Following the successful download, we can enter the folder that was created.
+`launch.sh`{{execute T1}}
 
-`cd simple-web`{{execute T1}}
+Next, we can download the Istio version of our choice. For this tutorial, we are going to use the most recent at the time of writing.
 
-Once we have entered the simple-web folder we can deploy the solution on Kubernetes. To do this the following script can be run.
+`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
 
-`kubectl apply -f deployment.yml`{{execute T1}}
+Following this, we can add the "istioctl" client to our path.
 
-To open our solution to outside traffic and specify the routing rules (Necessary for A/B testing) we need to create an Istio ingress gateway.
+`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
 
-`kubectl apply -f istio.yml`{{execute T1}}
+With this being done we can go on to the actual installation of the product. For this purpose we are using "demo" [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/). It is a good choice for starting as it offers a good set of defaults.
 
-Now we must verify that everything is working by running the following command.
+`istioctl install --set profile=demo -y`{{execute T1}}
 
-`kubectl get pods`{{execute T1}}
+Lastly, let's instruct Istio to automatically inject Envoy sidecar proxies when deploying the application.
 
-Wait for all pods to finish and show status as "Running", before continuing.
+`kubectl label namespace default istio-injection=enabled`{{execute T1}}
 
-We can view the site by clicking the following link below (might take some time to be available):
-
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
-
-Don't forget about the browser cache, this could result in displaying of single button color event after the page is refreshed/button clicked multiple times.
-To solve this:
-- Use "Ctrl + f5" to refresh the page without using cache
-- Most browsers, can disable caching when developer tools are open. To do this press "Ctrl + Shift + I" and go to the Network section and check “Disable cache”.
-
-Once you have noticed the different variations of the same website we can proceed to the next step.
+With this being done we can move on to the next step.

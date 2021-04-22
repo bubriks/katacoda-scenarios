@@ -1,44 +1,34 @@
-Since the idea of A/B testing is to provide business value, we need to find people who would be using the application. Luckily for the purposes of this tutorial, we can simulate this.
+Now that Istio is set up and running, we can continue by deploying our solution.
 
-Running this command we will generate 5 requests every second for our solution.
+To do this we will download the simple-web repository, which will contain all the necessary files for us to perform the rest of the tutorial.
 
-```while true; do
-  curl -s https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
-  echo -n .;
-  sleep 0.2
-done```{{execute T1}}
+`git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
-To monitor how these requests are handled we need more tools as neither Kubernetes nor Istio provides anything that we could use. However, Istio can utilize various addons which we can use for our purposes.
+Following the successful download, we can enter the folder that was created.
 
-To begin with we need something that can record metrics of usage. For this, we will use Prometheus.
+`cd simple-web`{{execute T1}}
 
-The installation is a straightforward process and for our pourposes, nothing more than single command needs to be run.
+Once we have entered the simple-web folder we can deploy the solution on Kubernetes. To do this the following script can be run.
 
-`kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.9/samples/addons/prometheus.yaml`{{execute T1}}
+`kubectl apply -f deployment.yml`{{execute T1}}
 
-The visualization of metrics will be done using another open-source tool: Grafana. 
+To open our solution to outside traffic and specify the routing rules (Necessary for A/B testing) we need to create an Istio ingress gateway.
 
-Here again, only single command needs to be executed.
+`kubectl apply -f istio.yml`{{execute T1}}
 
-`kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.9/samples/addons/grafana.yaml`{{execute T1}}
+Now we must verify that everything is working by running the following command.
 
-After setting up our monitoring solution we must expose it.
+`kubectl get pods`{{execute T1}}
 
-To begin with we need to change katacoda.yaml file by replacing the previous IP address with the current host IP.
+Wait for all pods to finish and show status as "Running", before continuing.
 
-`sed -i 's/172.17.0.54/[[HOST_IP]]/g' katacoda.yaml`{{execute T1}}
+We can view the site by clicking the following link below (might take some time to be available):
 
-After the change, we can run it.
+https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
-`kubectl apply -f katacoda.yaml`{{execute T1}}
+Don't forget about the browser cache, this could result in displaying of single button color event after the page is refreshed/button clicked multiple times.
+To solve this:
+- Use "Ctrl + f5" to refresh the page without using cache
+- Most browsers, can disable caching when developer tools are open. To do this press "Ctrl + Shift + I" and go to the Network section and check “Disable cache”.
 
-No by using the following links we can experience the tools that we have installed.
-
-Grafana.
-
-https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-mesh-dashboard
-
-Prometheus.
-
-https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com/
-
+Once you have noticed the different variations of the same website we can proceed to the next step.
