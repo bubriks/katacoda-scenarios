@@ -23,3 +23,6 @@ test/
 ```
 
 When Travis is done running the test, they will show the outcome of the test. This is done by showing it in their own dashboard and through GitHub Actions.
+
+We can now exit the folder.
+`cd ..`{{execute T1}}
