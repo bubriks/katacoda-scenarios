@@ -1,25 +1,25 @@
-Now we move on to the A/B testing part of our tutorial.
+Now we move onto the `package.json` file. This file is created when you run `npm init` and it tells npm what your project is about. 
 
-The first step of our tutorial is to get everything ready, by setting up [Istio](https://istio.io/).
+We can use this command to look at the `package.json` file.  
+`cat package.json`{{execute T1}}
 
-To begin with, let us make sure that the Kubernetes cluster is running.
+If you look at the file you will notice this section:
+```
+...
+"scripts": {
+    "test": "mocha"
+  }
+...
+```
 
-`launch.sh`{{execute T1}}
+This project is using the Mocha JavaScript test framework and the section above is telling npm to run Mocha.  
 
-Next, we can download the Istio version of our choice. For this tutorial, we are going to use the most recent at the time of writing.
+In this project there is a `test.js` which Mocha looks for when it is called. If later you want to have multiple test files, Mocha can instead look for a test folder and you can store them like this:
 
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
+```
+test/
+├── test_1.js
+└── test_2.js
+```
 
-Following this, we can add the "istioctl" client to our path.
-
-`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
-
-With this being done we can go on to the actual installation of the product. For this purpose we are using "demo" [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/). It is a good choice for starting as it offers a good set of defaults.
-
-`istioctl install --set profile=demo -y`{{execute T1}}
-
-Lastly, let's instruct Istio to automatically inject Envoy sidecar proxies when deploying the application.
-
-`kubectl label namespace default istio-injection=enabled`{{execute T1}}
-
-With this being done we can move on to the next step.
+When Travis is done running the test, they will show the outcome of the test. This is done by showing it in their own dashboard and through GitHub Actions.
