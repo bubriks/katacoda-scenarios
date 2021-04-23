@@ -1,10 +1,6 @@
 Now that Istio is set up and running, we can continue by deploying our solution.
 
-To do this we will download the simple-web repository, which will contain all the necessary files for us to perform the rest of the tutorial.
-
-`git clone https://github.com/bubriks/simple-web`{{execute T1}}
-
-Following the successful download, we can enter the folder that was created.
+Now we need to use the `simple web` that we looked at before during the CI/CD part of the tutorial.
 
 `cd simple-web`{{execute T1}}
 
