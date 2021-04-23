@@ -16,4 +16,10 @@ language: node_js
 node_js:
   - node
 ```
-`language: node_js` specifies which language Travis expects and in this case it is Javascript within the Node JS framework. `node_js: - node` tells Travis to use the newest stable release of Node JS. Notice that the file is missing any commands, this is because has default behaviours. Travis would choose to run either `make test` or `npm test`. `npm test` is run if `package.json` exist. Travis would then also run `npm install` or `npm ci` which tells npm what to prepare before running the test. Travis would run `npm ci` if it detects a `package-lock.json` which tells npm what dependencies the project is using. 
+`language: node_js` specifies which language Travis expects and in this case it is Javascript within the Node JS framework. `node_js: - node` tells Travis to use the newest stable release of Node JS. Notice that the file is missing any commands, this is because Travis has default behaviours. 
+
+For Node JS Travis would run `npm install` or `npm ci`. Travis would run `npm ci` if it detects a `package-lock.json` which tells npm what dependencies the project is using. 
+
+Travis would then also choose to run either `make test` or `npm test`. `npm test` is chosen if `package.json` exist. 
+
+Essentially what Travis is doing is learn what language the project is using, get the appropriate dependencies, and run the test.
