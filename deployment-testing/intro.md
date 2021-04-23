@@ -1,4 +1,4 @@
-This example will showcase the implementation of A/B testing.
+This example will mainly focus with showcasing the implementation of A/B testing.
 
 # What is A/B testing?
 
@@ -6,13 +6,22 @@ A/B (Alpha/Beta) testing is a testing methodology used by developers that involv
 
 # Plan for the tutorial
 
-This tutorial will include the usage of 2 versions of the same website. With each of them offering different colors for the button. The goal is to monitor which of the colors (if any) encourage the button to be clicked more often. 
+The tutorial will be divided into 2 parts.
+
+The first is a tutorial on setting up a CI/CD tool with Travis. Where we follow a simple guide on how to setup Travis for an example web project. Due to the topic this tutorial will mostly be explanation.
+
+The second is that this tutorial will include the usage of 2 versions of the same website. With each of them offering different colors for the button. The goal is to monitor which of the colors (if any) encourage the button to be clicked more often. 
 
 # Learning goals:
 * A/B Testing
 * Traffic management with Istio
 * Using docker containers with Kubernetes
 * Solution monitoring
+* CI with Travis CI
+
+# Requirements:
+* GitHub account
+* Travis CI account
 
 # More information
 
