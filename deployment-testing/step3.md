@@ -22,4 +22,4 @@ Now that Travis knows where to look, we can upload the simple web to the reposit
 
 Travis will start working after `.travis.yml` if found. This means that for the first push containing the `.travis.yml` file, it will not run. After this, all changes would cause Travis to be run.
 
-Now that the CI/CD section is finished. You can combine what you have learned here with the upcoming A/B section to create a pipeline that will directly integrate and deploy A/B testing. You can set it up so that your newest change with be tested againts the currently deployed version. This is quite advanced and since this tutorial aims to cover the basics we will not go over this specific scenarion.
+Now that the CI/CD section is finished. You can combine what you have learned here with the upcoming A/B section to create a pipeline that will directly integrate and deploy A/B testing. You can set it up so that your newest change with be tested againts the currently deployed version. This is quite advanced and since this tutorial aims to cover the basics we will not go over this specific scenario.
