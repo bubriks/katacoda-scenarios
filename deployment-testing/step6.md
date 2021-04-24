@@ -32,7 +32,7 @@ After the change, we can run this file.
 
 `kubectl apply -f katacoda.yaml`{{execute T1}}
 
-No by using the following links we can experience the tools that we have installed.
+Now by using the following links we can experience the tools that we have installed.
 
 Grafana.
 

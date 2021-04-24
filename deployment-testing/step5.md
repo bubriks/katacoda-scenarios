@@ -22,7 +22,7 @@ Wait for all pods to finish and show status as "Running", before continuing.
 
 We can view the site by clicking the following link below (might take some time to be available):
 
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+https://[[HOST_SUBDOMAIN]]-31380-[[KATACODA_HOST]].environments.katacoda.com/
 
 Don't forget about the cache, this could result in borwser displaying a single button color even after the page is refreshed/button clicked multiple times.
 To solve this either:
