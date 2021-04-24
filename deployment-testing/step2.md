@@ -2,7 +2,9 @@ Now moving on to `package.json` file.
 
 This file is created when you run `npm init` and it tells npm what your project is about. 
 
-When looking inside of it `cat package.json`{{execute T1}} you will notice this section:
+When looking inside the `package.json` file  
+`cat package.json`{{execute T1}}   
+you will notice this section:
 ```
 ...
 "scripts": {
@@ -23,5 +25,5 @@ test/
 
 When Travis is done running tests it will show their outcomes. This visible in the Travis CI dashboard.
 
-We can now exit the folder.
+We can now exit the folder.  
 `cd ..`{{execute T1}}
