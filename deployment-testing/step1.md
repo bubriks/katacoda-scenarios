@@ -3,13 +3,13 @@ As already mentioned we begin by looking at the basics of continuous integration
 First, we need to get the sample repository with all contents necessary for this tutorial (including A/B testing later on).
 `git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
-With a successfully downloaded repository, we can move in and see what we have.
-`cd simple-web`{{execute T1}}
+With a successfully downloaded repository, we can move in and see what we have.  
+`cd simple-web`{{execute T1}}  
 `ls`{{execute T1}}
 
 What we are going to focus on is `.travis.yml` and `package.json`.
 
-`.travis.yml` instructs Travis CI about steps to follow.  
+`.travis.yml` instructs Travis CI about what steps to follow.  
 
 Let us look inside it.  
 `cat .travis.yml`{{execute T1}}
