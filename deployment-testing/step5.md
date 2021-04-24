@@ -8,11 +8,11 @@ To begin with, let us make sure that the Kubernetes cluster is running.
 
 Next, we can download the Istio version of our choice. For this tutorial, we are going to use the most recent release (at the time of writing).
 
-`cd && curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
+`cd && curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.2 sh -`{{execute T1}}
 
 Following this, we can add the "istioctl" client to our path.
 
-`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
+`export PATH=istio-1.9.2/bin:$PATH`{{execute T1}}
 
 With this being done we can go on to the actual installation of the product.
 For this purpose we are using "demo" [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/).
