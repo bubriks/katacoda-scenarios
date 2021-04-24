@@ -1,6 +1,6 @@
-As for setting up a GitHub repository with Travis CI, you will need a GitHub account and a Travis CI account. We would then describe how to set it up with the simple web files.  
+Now with Travis CI explored, the focus in this step will be on setting up a GitHub repository with Travis CI. For this, you will need GitHub and Travis CI account.  
 
-First we need to create a GitHub repository.  
+First, we must start by creating a GitHub repository.  
 [new repository](https://github.com/new)  
 
 For example:  
@@ -10,12 +10,14 @@ For example:
 Once the repository is created we should jump to Travis CI.  
 [Travis CI](https://www.travis-ci.com/)
 
-Sign in or sign up with your GitHub account.  
+Sign in (if you have an account) or sign up (for first-time users) with your GitHub account.  
 
-Once you are signed in you will be placed into the dashboard.  
+Once you are signed in you will be placed into the Travis dashboard.  
 
-Then go to the settings by clicking on your profile and clicking on settings.  
+Go into settings by clicking on your profile and selecting settings.  
 
-Click on the `activate` button if you haven't and choose which repository that you want Travis to work on. For example you can just choose one repository and choose the `travis-test` one.
+Click on the `activate` button if you haven't and choose which repository you want Travis to work on. For example this example you can just choose `travis-test`.
 
-Now that Travis knows where to look, we can upload the simple web to the repository. Travis will react for every git push onto the GitHub repository after `.travis.yml` if found. This means that for the first first push containing the `.travis.yml` file, it will not run. After this exist on the remote repository though all pushes afterwards would be run by Travis.
+Now that Travis knows where to look, we can upload the simple web to the repository. 
+
+Travis will start working after `.travis.yml` if found. This means that for the first push containing the `.travis.yml` file, it will not run. After this, all changes would cause Travis to be run.

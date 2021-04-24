@@ -1,9 +1,8 @@
-Now we move onto the `package.json` file. This file is created when you run `npm init` and it tells npm what your project is about. 
+Now moving on to `package.json` file.
 
-We can use this command to look at the `package.json` file.  
-`cat package.json`{{execute T1}}
+This file is created when you run `npm init` and it tells npm what your project is about. 
 
-If you look at the file you will notice this section:
+When looking inside of it `cat package.json`{{execute T1}} you will notice this section:
 ```
 ...
 "scripts": {
@@ -12,9 +11,9 @@ If you look at the file you will notice this section:
 ...
 ```
 
-This project is using the Mocha JavaScript test framework and the section above is telling npm to run Mocha.  
+This means that project is using the Mocha JavaScript test framework.  
 
-In this project there is a `test.js` which Mocha looks for when it is called. If later you want to have multiple test files, Mocha can instead look for a test folder and you can store them like this:
+In this project, there is a `test.js` that Mocha looks for when it is called. If there is a desire to have multiple test files, Mocha can instead look for a test folder and you can store them like this:
 
 ```
 test/
@@ -22,7 +21,7 @@ test/
 └── test_2.js
 ```
 
-When Travis is done running the test, they will show the outcome of the test. This is done by showing it in their own dashboard and through GitHub Actions.
+When Travis is done running tests it will show their outcomes. This visible in the Travis CI dashboard.
 
 We can now exit the folder.
 `cd ..`{{execute T1}}

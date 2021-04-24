@@ -1,28 +1,32 @@
-The first part is the CI section of the tutorial. Due to the topic if you wish to follow along then this would need to be done outside of Katacoda. The explanation provided here should be enough to understand what is happening so that you can safely read along instead.
+As already mentioned we begin by looking at the basics of continuous integration. This implementation requires some work to be done outside the Katacoda environment, therefore, if you feel confident in your understanding of the topic feel free to simply read through.
 
-First we need to get the sample repository with all of the example setups.
+First, we need to get the sample repository with all contents necessary for this tutorial (including A/B testing later on).
 `git clone https://github.com/bubriks/simple-web`{{execute T1}}
 
-Then lets move in and see what we have.
+With a successfully downloaded repository, we can move in and see what we have.
 `cd simple-web`{{execute T1}}
 `ls`{{execute T1}}
 
 What we are going to focus on is `.travis.yml` and `package.json`.
-For `.travis.yml` it is a file that Travis CI will follow to show whether this version works or not.  
 
-We can use this command to look at the `.travis.yml` file.  
+`.travis.yml` instructs Travis CI about steps to follow.  
+
+Let us look inside it.  
 `cat .travis.yml`{{execute T1}}
 
-Inside we find:
+Inside we will find:
 ```
 language: node_js
 node_js:
   - node
 ```
-`language: node_js` specifies which language Travis expects and in this case it is JavaScript within the Node JS framework. `node_js: - node` tells Travis to use the newest stable release of Node JS. Notice that the file is missing any commands, this is because Travis has default behaviours. 
 
-For Node JS Travis would run `npm install` or `npm ci`. Travis would run `npm ci` if it detects a `package-lock.json` which tells npm what dependencies the project is using. 
+`language: node_js` specifies which language Travis expects and in this case, it is JavaScript within the Node JS framework. 
+`node_js: - node` tells Travis to use the newest stable release of Node JS.
 
-Travis would then also choose to run either `make test` or `npm test`. `npm test` is chosen if `package.json` exist. 
+Notice that the file is missing commands, this is because Travis has default behaviors. 
 
-Essentially what Travis is doing is learn what language the project is using, get the appropriate dependencies, and run the test.
+For example, if Travis detects a `package-lock.json` file that holds dependencies for the project, it'll use `npm ci` otherwise `npm install`.
+Same happening for tests, with it choosing to run `npm test` if `package.json` exists. In the case of this package missing, `make test` is run.
+
+Essentially Travis is deciding on appropriate dependencies and running the test based on the language used by the project.
