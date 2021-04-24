@@ -22,4 +22,8 @@ Lastly, we will instruct Istio to automatically inject Envoy sidecar proxies whe
 
 `kubectl label namespace default istio-injection=enabled`{{execute T1}}
 
+Verify that everything works as intended, by checking that istio-ingressgateway has an external IP (in the unfortunate case of perpetually <pending> please restart the scenario, as the following steps will not work).
+
+`kubectl get services -A`{{execute T1}}
+
 With the completion of these tasks we have successfully set up Istio, now we can move on to the next step.
