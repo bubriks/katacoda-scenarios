@@ -23,6 +23,9 @@ test/
 └── test_2.js
 ```
 
+Since this is an example, the test written in `test.js` are placeholder examples. If you are interested in how a test file might look like you can check it out.  
+`cat test.js`{{execute T1}}  
+
 When Travis is done running tests it will show their outcomes. This visible in the Travis CI dashboard.
 
 We can now exit the folder.  
