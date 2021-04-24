@@ -1,32 +1,21 @@
-Now moving on to `package.json` file.
+`.travis.yml` instructs Travis CI about what steps to follow.  
 
-This file is created when you run `npm init` and it tells npm what your project is about. 
+We can look inside by executing the following command. 
+`cat .travis.yml`{{execute T1}}
 
-When looking inside the `package.json` file  
-`cat package.json`{{execute T1}}   
-you will notice this section:
+Within the file we will find:
 ```
-...
-"scripts": {
-    "test": "mocha"
-  }
-...
+language: node_js
+node_js:
+  - node
 ```
 
-This means that project is using the Mocha JavaScript test framework.  
+`language: node_js` specifies which language Travis expects and in this case, it is JavaScript within the Node JS framework. 
+`node_js: - node` tells Travis to use the newest stable release of Node JS.
 
-In this project, there is a `test.js` that Mocha looks for when it is called. If there is a desire to have multiple test files, Mocha can instead look for a test folder and you can store them like this:
+Notice that the file is missing any commands, this is because Travis has default behaviors. 
 
-```
-test/
-├── test_1.js
-└── test_2.js
-```
+For example, if Travis detects a `package-lock.json` file that holds dependencies for the project, it will use `npm ci` instead of `npm install`.
+Same happening for tests, with it choosing to run `npm test` if `package.json` exists. In the case of this package missing, `make test` is run.
 
-Since this is an example, the test written in `test.js` are placeholder examples. If you are interested in how a test file might look like you can check it out.  
-`cat test.js`{{execute T1}}  
-
-When Travis is done running tests it will show their outcomes. This visible in the Travis CI dashboard.
-
-We can now exit the folder.  
-`cd ..`{{execute T1}}
+Essentially Travis is deciding on appropriate dependencies and running the test based on the language used by the project.

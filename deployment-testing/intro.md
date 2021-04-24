@@ -1,23 +1,24 @@
-This tutorial will focus on showcasing the basics of CI/CD pipeline implementation and products A/B testing.
+This tutorial will focus on showcasing the basics of CI/CD pipeline implementation and the final product's A/B testing.
 
 # What is CI/CD
 
 CI/CD is a software development practice of "continuous integration" and either "continuous delivery" or "continuous deployment".
-During the integration, phase changes are merged into a common repository and usually tested.
-Meanwhile, continuous delivery expands on continuous integration, by deploying the solution in a testing environment.
-The deployment automatically delivers the newest change to the customer.
+- Integration: changes are merged into a common repository and usually tested.
+- Delivery: expands on continuous integration, by deploying the solution in a testing environment.
+- Deployment: like delivery, but automatically delivers the newest change to the customer.
 
 # What is A/B testing?
 
-A/B (Alpha/Beta) testing is a testing methodology used by developers that involves monitoring the user behavior in order to help improve the product. The basic idea is to present users with two variations of solution and see which one performs best.
+A/B (Alpha/Beta) testing is a testing methodology used by developers that involves monitoring the user behavior in order to help improve the product.
+The basic idea is to present users with two variations of the same solution and see which one performs best.
 
 # Plan for the tutorial
 
-The tutorial will be divided into 2 parts.
+This tutorial will be divided into few parts, with the user being able to skip specific sections if they are not interested in them (Step 1 is mandatory).
 
-The first part of this tutorial focuses on understanding the basic principles of the CI/CD pipeline using Travis.
-
-The following section of the tutorial will implement A/B testing. This will include the usage of 2 versions of the same website. With each of them offering different colors for the button. The goal is to monitor which of the colors (if any) encourage the button to be clicked more often. 
+- Step 1: Getting started (Prerequisite for the rest of the tutorial).
+- Steps 2 to 4: Focus is placed on understanding the basic principles of the CI/CD pipeline using Travis.
+- Steps 5 to 7: Implementation of A/B testing. This will include the usage of 2 versions of the same website. With each of them offering different colors for buttons. The goal is to monitor the impact of the colors on the consumer. 
 
 # Learning goals:
 * CI with Travis CI

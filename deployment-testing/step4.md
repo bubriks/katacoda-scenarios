@@ -1,29 +1,23 @@
-Now we are going to start the A/B testing part of our tutorial.
+Now with Travis CI explored, the focus in this step will be on setting up a GitHub repository using Travis CI.
+The following steps require some work to be done outside of the Katacoda environment, therefore,
+if you feel confident in your understanding of the topic feel free to simply read through.
 
-The first step is to get the Kubernetes cluster ready, by setting up [Istio](https://istio.io/).
+First, we must start by creating a GitHub repository.  
+[new repository](https://github.com/new)  
 
-To begin with, let us make sure that the Kubernetes cluster is actually running.
+For example:  
+* repository name: `travis-test`  
+* `public` repository  
 
-`launch.sh`{{execute T1}}
+Once the repository is created we should jump to Travis CI.  
+[Travis CI](https://www.travis-ci.com/)
 
-Next, we can download the Istio version of our choice. For this tutorial, we are going to use the most recent release (at the time of writing).
+Login with your GitHub account.  
 
-`curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
+Once you are signed in you will be placed into the Travis dashboard.  
+From here go into settings by clicking on your profile and selecting settings.  
+Click on the `activate` button if you haven't and choose which repository you want Travis to work on. For our example, you can just choose `travis-test`.
 
-Following this, we can add the "istioctl" client to our path.
+Now that Travis has access to your repository, you can upload `simple-web` contents to verify that it works. 
 
-`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
-
-With this being done we can go on to the actual installation of the product. For this purpose we are using "demo" [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/). It is a good choice for starting due to it offering a good set of defaults.
-
-`istioctl install --set profile=demo -y`{{execute T1}}
-
-Lastly, we will instruct Istio to automatically inject Envoy sidecar proxies when deploying the application.
-
-`kubectl label namespace default istio-injection=enabled`{{execute T1}}
-
-Verify that everything works as intended, by checking that istio-ingressgateway has an external IP (in the unfortunate case of perpetually <pending> please restart the scenario, as the following steps will not work).
-
-`kubectl get services -A`{{execute T1}}
-
-With the completion of these tasks we have successfully set up Istio, now we can move on to the next step.
+Travis will start functioning only if `.travis.yml` is found in the directory.

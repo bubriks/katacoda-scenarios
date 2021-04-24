@@ -1,32 +1,32 @@
-We can continue by deploying our solution.
+Now we are going to start the A/B testing part of our tutorial.
 
-For this, we need to use the `simple-web` solution that we looked at before (during the CI/CD part of the tutorial).
+The first step is to get the Kubernetes cluster ready, by setting up [Istio](https://istio.io/).
 
-`cd simple-web`{{execute T1}}
+To begin with, let us make sure that the Kubernetes cluster is running.
 
-Once we have entered the simple-web folder we can deploy the solution on Kubernetes. To do this the following script can be run.
+`launch.sh`{{execute T1}}
 
-`kubectl apply -f deployment.yml`{{execute T1}}
+Next, we can download the Istio version of our choice. For this tutorial, we are going to use the most recent release (at the time of writing).
 
-The execution of this script will result in the creation of 2 deployments (each for a different version of the application) and a single service that we will be using.
+`cd && curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.3 sh -`{{execute T1}}
 
-To open our solution to the outside traffic and specify the routing rules (Necessary for A/B testing) we need to create an Istio ingress gateway. In this case, 50% of traffic goes to each version.
+Following this, we can add the "istioctl" client to our path.
 
-`kubectl apply -f istio.yml`{{execute T1}}
+`export PATH=istio-1.9.3/bin:$PATH`{{execute T1}}
 
-Now to verify that everything is working run the following command.
+With this being done we can go on to the actual installation of the product.
+For this purpose we are using "demo" [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/).
+It is a good choice for starting due to it offering a good set of defaults.
 
-`kubectl get pods`{{execute T1}}
+`istioctl install --set profile=demo -y`{{execute T1}}
 
-Wait for all pods to finish and show status as "Running", before continuing.
+Lastly, we will instruct Istio to automatically inject Envoy sidecar proxies when deploying the application.
 
-We can view the site by clicking the following link below (might take some time to be available):
+`kubectl label namespace default istio-injection=enabled`{{execute T1}}
 
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+Verify that everything works as intended, by checking that istio-ingressgateway has an external IP
+(in the unfortunate case of perpetually `<pending>` IP please restart the scenario, as the following steps will not work due to limitation in the Katacoda environment).
 
-Don't forget about the cache, this could result in borwser displaying a single button color even after the page is refreshed/button clicked multiple times.
-To solve this either:
-- Use "Ctrl + f5" to refresh the page without using cache.
-- Disable caching when developer tools are open. To do this press "Ctrl + Shift + I" and go to the Network section and check “Disable cache”.
+`kubectl get services -A`{{execute T1}}
 
-Once you have noticed the different variations of the same website we can proceed to the Monitoring.
+With the completion of these tasks we have successfully set up Istio, now we can move on to the next step.
