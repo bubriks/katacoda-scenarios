@@ -37,7 +37,7 @@ Now all that we need to do is to find people who would be willing to use the app
 However, for now, we can simulate it using a command which will generate 5 requests every second.
 
 ```while true; do
-  curl -s https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+  curl -s https://[[HOST_SUBDOMAIN]]-${INGRESS_PORT:-80}-[[KATACODA_HOST]].environments.katacoda.com
   echo -n .;
   sleep 0.2
 done```{{execute T1}}

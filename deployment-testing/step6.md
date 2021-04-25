@@ -36,7 +36,7 @@ In the unfortunate case of perpetually `<pending>` EXTERNAL-IP the Katacoda has 
 To circumvent this issue we can use node port when connecting to the cluster.
 The following command will provide us with this port number.
 
-`echo $(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')`{{execute T1}}
+`export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}') && echo $INGRESS_PORT`{{execute T1}}
 
 Now we can use it in the previously provided link, by replacing port 80 with the received number.
 After the change press `Display Port` to see the page.
