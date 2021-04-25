@@ -2,7 +2,7 @@
 CI/CD pipelines are a must-have for groups of developers who want to cooperate on the same product (as it is a cumbersome task to coordinate changes without them).
 Furthermore, continuous testing helps to avoid a simple change causing unexpected issues. 
 
-Additionally, for businesses to gain most of their product they almost inevitably would need to use Alpha/Beta testing.
+Additionally, for businesses to gain most from their product they almost inevitably would need to use Alpha/Beta testing.
 It is usually done for small visual changes in order to reduce the impact that multiple concurrent modifications could have on each other.
 When properly implemented it can help improve the product without noticeably affecting the consumer.
 

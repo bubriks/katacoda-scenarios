@@ -20,4 +20,4 @@ Click on the `activate` button if you haven't and choose which repository you wa
 
 Now that Travis has access to your repository, you can upload `simple-web` contents to verify that it works. 
 
-Travis will start functioning only if `.travis.yml` is found in the directory.
+Notice, that Travis will start functioning only if `.travis.yml` is found in the directory.

@@ -21,11 +21,11 @@ Now to verify that everything is working run the following command.
 
 Wait for all pods to finish and show status as "Running", before continuing.
 
-We can view the site by clicking the following link below (might take few seconds to be available):
+We can view the site by clicking the link below. It might take few seconds for the page to become available (If the issue persists check for advice below).
 
 https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
-Once you have noticed the different variations of the same website we can proceed to the Monitoring step.
+Once you have noticed the different variations of the same website we can proceed to the Monitoring step (If only single button color is seen check for advice below).
 
 # Issue: The provided link does not work
 Verify that everything should be working, by checking that istio-ingressgateway has an external IP.

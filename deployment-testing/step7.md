@@ -10,7 +10,7 @@ The installation is a straightforward process and for our purposes, nothing more
 
 The visualization of metrics will be done using another open-source tool: [Grafana](https://grafana.com). 
 
-Here again, the only single command needs to be executed.
+Here again, only a single command needs to be executed.
 
 `kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.9/samples/addons/grafana.yaml`{{execute T1}}
 

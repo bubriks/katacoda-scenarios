@@ -29,6 +29,3 @@ If you are interested in how a test file might look like you can check it out.
 `cat test.js`{{execute T1}}  
 
 When Travis is done running tests it will show their outcomes. This is visible in the Travis CI dashboard.
-
-We can now exit the folder.  
-`cd ..`{{execute T1}}

@@ -1,4 +1,4 @@
-This tutorial will focus on showcasing the basics of CI/CD pipeline implementation and the final product's A/B testing.
+This tutorial will focus on showcasing the basics of CI/CD pipeline implementation and the product's A/B testing.
 
 # What is CI/CD
 
