@@ -2,13 +2,13 @@ Since the idea of A/B testing is to provide business value, we need to be able t
 For this, we need more tools as neither Kubernetes nor Istio provides anything that we could use.
 However, Istio can utilize various addons which will come useful.
 
-To begin with we need something that can record metrics of usage. For this, we will use [Prometheus](https://prometheus.io/).
+To begin with we need something that can record metrics of usage. For this, we will use [Prometheus](https://prometheus.io).
 
 The installation is a straightforward process and for our purposes, nothing more than single command needs to be run.
 
 `kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.9/samples/addons/prometheus.yaml`{{execute T1}}
 
-The visualization of metrics will be done using another open-source tool: [Grafana](https://grafana.com/). 
+The visualization of metrics will be done using another open-source tool: [Grafana](https://grafana.com). 
 
 Here again, the only single command needs to be executed.
 
